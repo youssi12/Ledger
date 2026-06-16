@@ -1,0 +1,25 @@
+# Dependencies
+backend/node_modules/
+frontend/node_modules
+# Database (don't commit your local data)
+backend/data/
+
+# React build output
+frontend/dist/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
