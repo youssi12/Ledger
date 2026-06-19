@@ -1,4 +1,4 @@
-const BASE = '/api'
+const BASE = 'https://ledger-clir.onrender.com'
 
 async function req(path, opts = {}) {
   const res = await fetch(BASE + path, {
