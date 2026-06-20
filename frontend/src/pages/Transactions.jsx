@@ -19,8 +19,9 @@ export default function Transactions({ accounts }) {
   const load = useCallback(async () => {
     setLoading(true)
     try {
-      const res = await api.transactions({ limit: LIMIT, offset, q: query || undefined })
-      setData(res)
+       const res = await api.transactions({ limit: LIMIT, offset, q: query || undefined })
+       console.log('Transactions response:', res)
+       setData(res)
     } catch(e) { console.error('Transactions load failed:', e) }
     finally { setLoading(false) }
   }, [offset, query])
