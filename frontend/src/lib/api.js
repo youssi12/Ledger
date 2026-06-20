@@ -21,5 +21,5 @@ export const api = {
   transactions: (params)=> req('/transactions?' + new URLSearchParams(params).toString()),
   createTx:     (body)  => req('/transactions', { method:'POST', body }),
   audit:        (params)=> req('/audit?' + new URLSearchParams(params).toString()),
-  exportUrl:    ()      => '/api/transactions/export.csv',
+  exportUrl:    ()      => `${BASE}/transactions/export.csv`,
 }
