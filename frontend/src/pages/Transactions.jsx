@@ -21,7 +21,7 @@ export default function Transactions({ accounts }) {
     try {
       const res = await api.transactions({ limit: LIMIT, offset, q: query || undefined })
       setData(res)
-    } catch(e) { /* ignore */ }
+    } catch(e) { console.error('Transactions load failed:', e) }
     finally { setLoading(false) }
   }, [offset, query])
 
