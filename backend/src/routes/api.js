@@ -66,7 +66,7 @@ r.get('/transactions/export.csv', (_req, res) => {
 })
 
 r.get('/transactions', (req, res) => {
-  const { limit=20, offset=0, account, q } = req.query
+  const { limit=20, offset=0, account, q } = req.query 
   let sql = `SELECT t.*,da.name as debit_name,ca.name as credit_name FROM transactions t JOIN accounts da ON t.debit_account=da.id JOIN accounts ca ON t.credit_account=ca.id WHERE 1=1`
   const params = []
   if (account) { sql += ' AND (t.debit_account=? OR t.credit_account=?)'; params.push(account,account) }

@@ -17,9 +17,19 @@ export const api = {
   summary:      ()      => req('/summary'),
   accounts:     ()      => req('/accounts'),
   createAccount:(body)  => req('/accounts', { method:'POST', body }),
-  deleteAccount:(id)    => req(`/accounts/${id}`, { method:'DELETE' }),
-  transactions: (params)=> req('/transactions?' + new URLSearchParams(params).toString()),
-  createTx:     (body)  => req('/transactions', { method:'POST', body }),
-  audit:        (params)=> req('/audit?' + new URLSearchParams(params).toString()),
+  deleteAccount:(id)    => req(`/accounts/${id}`, { method:'DELETE' }), 
+  transactions: (params) => {
+  const clean = Object.fromEntries(
+    Object.entries(params).filter(([_, v]) => v !== undefined && v !== '')
+  )
+  return req('/transactions?' + new URLSearchParams(clean).toString())
+},
+  createTx:     (body)  => req('/transactions', { method:'POST', body }), 
+  audit: (params) => {
+  const clean = Object.fromEntries(
+    Object.entries(params).filter(([_, v]) => v !== undefined && v !== '')
+  )
+  return req('/audit?' + new URLSearchParams(clean).toString())
+},
   exportUrl:    ()      => `${BASE}/transactions/export.csv`,
 }
